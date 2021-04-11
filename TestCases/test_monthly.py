@@ -6,7 +6,7 @@ from Utilities.CommonFunctions import Commons
 from TestData import pricing
 
 class TestMonthly:
-
+    # checks monthly option is available
     def test_monthly_availability(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -14,6 +14,7 @@ class TestMonthly:
         pricingPage.clickMonthlyPlan()
         self.driver.close()
 
+    # Verifies Monthly > business amount
     def test_monthly_business_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -24,6 +25,7 @@ class TestMonthly:
         expectedAmount=pricing.SubscriptionPricing["Monthly"]["Business"]["MonthAmount"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Monthly > business billed amount
     def test_monthly_business_billedamount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -34,6 +36,7 @@ class TestMonthly:
         expectedBilledAmount = pricing.SubscriptionPricing["Monthly"]["Business"]["BilledAmount"]["price"]
         Commons.assertValues(actualBilledAmount, expectedBilledAmount, self.driver)
 
+    # Verifies Monthly > premium amount
     def test_monthly_premium_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -44,6 +47,7 @@ class TestMonthly:
         expectedAmount = pricing.SubscriptionPricing["Monthly"]["Premium"]["MonthAmount"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Monthly > business billed amount
     def test_monthly_premium_billedamount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -54,6 +58,7 @@ class TestMonthly:
         expectedBilledAmount = pricing.SubscriptionPricing["Monthly"]["Premium"]["BilledAmount"]["price"]
         Commons.assertValues(actualBilledAmount, expectedBilledAmount, self.driver)
 
+    # Verifies Monthly > pay as you go amount
     def test_monthly_payasugo_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -64,6 +69,7 @@ class TestMonthly:
         expectedAmount = pricing.SubscriptionPricing["Monthly"]["Pay as you go"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Monthly > Enterprise
     def test_monthly_enterprise(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)

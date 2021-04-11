@@ -5,7 +5,8 @@ from Utilities.readProperties import ReadConfig
 
 class TestPricing:
 
-    def test_homePageTitle(self,setup):
+    # Verifies the page tile
+    def test_PageTitle(self,setup):
         self.driver = setup
         Commons.get_url(self.driver)
         act_title=self.driver.title

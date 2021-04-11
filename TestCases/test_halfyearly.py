@@ -6,7 +6,7 @@ from Utilities.CommonFunctions import Commons
 from TestData import pricing
 
 class TestHalfYearly:
-
+    # checks halfyearly option is available
     def test_halfyearly_availability(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -14,6 +14,7 @@ class TestHalfYearly:
         pricingPage.clickHalfYearlyPlan()
         self.driver.close()
 
+    # Verifies Half yearly > business amount
     def test_halfyearly_business_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -24,6 +25,7 @@ class TestHalfYearly:
         expectedAmount=pricing.SubscriptionPricing["Half Yearly"]["Business"]["MonthAmount"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Half yearly > business billed amount
     def test_halfyearly_business_billedamount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -34,6 +36,7 @@ class TestHalfYearly:
         expectedBilledAmount = pricing.SubscriptionPricing["Half Yearly"]["Business"]["BilledAmount"]["price"]
         Commons.assertValues(actualBilledAmount, expectedBilledAmount, self.driver)
 
+    # Verifies Half yearly > premium amount
     def test_halfyearly_premium_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -44,6 +47,7 @@ class TestHalfYearly:
         expectedAmount = pricing.SubscriptionPricing["Half Yearly"]["Premium"]["MonthAmount"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Half yearly > premium billed amount
     def test_halfyearly_premium_billedamount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -54,6 +58,7 @@ class TestHalfYearly:
         expectedBilledAmount = pricing.SubscriptionPricing["Half Yearly"]["Premium"]["BilledAmount"]["price"]
         Commons.assertValues(actualBilledAmount, expectedBilledAmount, self.driver)
 
+    # Verifies Half yearly > Pay as u go price
     def test_halfyearlyy_payasugo_amount(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
@@ -64,6 +69,7 @@ class TestHalfYearly:
         expectedAmount = pricing.SubscriptionPricing["Half Yearly"]["Pay as you go"]["price"]
         Commons.assertValues(actualAmount, expectedAmount, self.driver)
 
+    # Verifies Half yearly > Enterprise
     def test_halfyearly_enterprise(self, setup):
         self.driver = setup
         Commons.get_url(self.driver)
